@@ -465,6 +465,16 @@ module.exports = function(webpackEnv) {
             // Make sure to add the new loader(s) before the "file" loader.
           ],
         },
+        {
+          test: /\.js$/,
+          loader: 'istanbul-instrumenter-loader',
+          exclude: [/Exchange.js/, /App.js/],
+          options: {
+            esModules: true
+          },
+          include: path.resolve('src/'),
+          enforce: "post",
+        }
       ],
     },
     plugins: [
