@@ -1990,9 +1990,9 @@ render() {
                 cb(receipt)
               })
             } else{
-              this.state.tx(this.state.contracts[ERC20TOKEN].approve(this.state.contracts.Links._address, amountToSend),21000,false,0,async (approveReceipt)=>{
+              this.state.tx(this.state.contracts[ERC20TOKEN].approve(this.state.contracts.Links._address, amountToSend),21000,false,0,async (approveReceipt)=>{//TODO undeployable: ERC20 unavailable
                 //cb(approveReceipt)
-                this.state.tx(this.state.contracts.Links.send(randomHash,sig.signature,tokenAddress,amountToSend,expirationTime),250000,false,amountToSend,async (sendReceipt)=>{
+                this.state.tx(this.state.contracts.Links.send(randomHash,sig.signature,tokenAddress,amountToSend,expirationTime),250000,false,amountToSend,async (sendReceipt)=>{//TODO undeployable: inherited unavailable
                   this.setState({sendLink: randomHash,sendKey: randomWallet.privateKey},()=>{
                     console.log("STATE SAVED",this.state)
                   })
@@ -2348,7 +2348,7 @@ render() {
 //<iframe id="galleassFrame" style={{zIndex:99,position:"absolute",left:0,top:0,width:800,height:600}} src="https://galleass.io" />
 
 
-async function tokenSend(to,value,gasLimit,txData,cb){
+async function tokenSend(to,value,gasLimit,txData,cb){// TODO undeployable: ERC20 unavailable
   let {account,web3} = this.state
 
   console.log("tokenSend")

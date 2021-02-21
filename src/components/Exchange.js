@@ -248,7 +248,7 @@ export default class Exchange extends React.Component {
 
                       }else{
                         console.log("Use MetaMask to go xDai to ETH")
-                        this.props.tx(
+                        this.props.tx(//TODO undeployable: ERC20 unavailable
                           gasEmitterContract.methods.goToETH()
                         ,120000,0,amountInWei,(receipt)=>{
                           if(receipt){
@@ -565,7 +565,7 @@ export default class Exchange extends React.Component {
 
           let metaMaskDaiContract = new this.props.web3.eth.Contract(this.props.daiContract._jsonInterface, this.props.daiContract._address || this.props.daiContract.options.address)
           console.log("CURRENT DAI CONTRACT YOU NEED TO GET ABI FROM:",this.props.daiContract)
-          this.props.tx(metaMaskDaiContract.methods.transfer(
+          this.props.tx(metaMaskDaiContract.methods.transfer(//TODO undeployable: ERC20 unavailable
             destination,
             core.getWeb3(MAINNET_CHAIN_ID).utils.toWei(""+amount,"ether")
             ///TODO LET ME PASS IN A CERTAIN AMOUNT OF GAS INSTEAD OF LEANING BACK ON THE <GAS> COMPONENT!!!!!
@@ -750,7 +750,7 @@ export default class Exchange extends React.Component {
         }
       })
       if(call){
-        this.props.tx(
+        this.props.tx(//TODO undeployable: uniswap unavailable
           call
         ,240000,0,amount,(receipt)=>{
           if(receipt){
@@ -920,7 +920,7 @@ export default class Exchange extends React.Component {
 
                   }else{
                     console.log("Use MetaMask to withdraw "+this.props.ERC20NAME+" to xDai")
-                    this.props.tx(
+                    this.props.tx(//TODO undeployable: ERC20 unavailable
                       this.props.contracts[this.props.ERC20VENDOR].deposit()
                     ,120000,0,amountOfxDaiToDeposit,(receipt)=>{
                       if(receipt){
@@ -1047,7 +1047,7 @@ export default class Exchange extends React.Component {
 
                     }else{
                       console.log("Use MetaMask to withdraw "+this.props.ERC20NAME+" to xDai")
-                      this.props.tx(
+                      this.props.tx(//TODO undeployable: uniswap unavailable
                         this.props.contracts[this.props.ERC20VENDOR].withdraw(""+amountOfxDaiToWithdraw)
                       ,120000,0,0,(receipt)=>{
                         if(receipt){
@@ -1859,7 +1859,7 @@ export default class Exchange extends React.Component {
 
                     let metaMaskDaiContract = new this.props.web3.eth.Contract(this.props.daiContract._jsonInterface,this.props.daiContract._address || this.props.daiContract.options.address)
 
-                    this.props.tx(
+                    this.props.tx(//TODO undeployable: uniswap unavailable
                       metaMaskDaiContract.methods.approve(uniswapExchangeAccount,""+(amountOfDai))//do 1000x so we don't have to waste gas doing it again
                     ,100000,0,0,(receipt)=>{
                       if(receipt){
@@ -1875,7 +1875,7 @@ export default class Exchange extends React.Component {
                           }
                         })
 
-                        this.props.tx(
+                        this.props.tx(//TODO undeployable: uniswap unavailable
                           uniswapContract.methods.tokenToEthSwapInput(""+amountOfDai,""+mineth,""+deadline)
                         ,240000,0,0,(receipt)=>{
                           if(receipt){
@@ -1898,7 +1898,7 @@ export default class Exchange extends React.Component {
                       }
                     })
 
-                    this.props.tx(
+                    this.props.tx(//TODO undeployable: uniswap unavailable
                       uniswapContract.methods.tokenToEthSwapInput(""+amountOfDai,""+mineth,""+deadline)
                     ,240000,0,0,(receipt)=>{
                       if(receipt){
